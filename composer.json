@@ -1,0 +1,27 @@
+{
+    "name": "jszsl001/tp6-curd",
+    "require": {
+        "ext-json": "*",
+        "ext-curl": "*",
+        "php": ">=7.4",
+        "topthink/framework": "^6.1.0"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^4.2"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "jszsl001\\tp6curd\\": "src/"
+        },
+        "files": [
+          "src/helper.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "zsl",
+            "email": "jszsl001@163.com"
+        }
+    ]
+}
