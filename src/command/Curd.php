@@ -16,7 +16,7 @@ class Curd extends Command
 
     protected function configure()
     {
-        $this -> setName('curd')
+        $this -> setName('curd:make')
             -> addArgument('module_name', Argument::REQUIRED, "模块名")
             -> addArgument('table_name', Argument::REQUIRED, "表名")
             -> setDescription('Generate CURD code');
