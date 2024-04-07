@@ -1,5 +1,6 @@
 {
     "name": "jszsl001/tp6-curd",
+    "description": "一键生成CURD基础代码,适用于thinkphp6框架",
     "require": {
         "ext-json": "*",
         "ext-curl": "*",
