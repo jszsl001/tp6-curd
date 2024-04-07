@@ -2,7 +2,7 @@
 
 namespace app\{{module}}\logic;
 
-use app\api\validate\{{logic}}Validate;
+use app\{{module}}\validate\{{logic}}Validate;
 use app\common\logic\BaseLogic;
 use app\StatusCode;
 use app\{{module}}\model\{{logic}}Model;
