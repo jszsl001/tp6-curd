@@ -11,11 +11,10 @@ use think\helper\Str;
 class Curd extends Command
 {
 
-    const DB_PREFIX = 'ai_';
-
-
     protected function configure()
     {
+        $this -> db_prefix = $this -> app -> config -> get('curd.db_prefix');
+
         $this -> setName('curd:make')
             -> addArgument('module_name', Argument::REQUIRED, "模块名")
             -> addArgument('table_name', Argument::REQUIRED, "表名")
@@ -83,7 +82,7 @@ class Curd extends Command
         $templateFilePath = dirname(__DIR__) . '/tpl/validate.tpl';
         $templateContent = file_get_contents($templateFilePath);
         // 读取数据库所有字段
-        $tableColumns = \think\facade\Db ::query("SHOW COLUMNS FROM " . self::DB_PREFIX . $tableName);
+        $tableColumns = \think\facade\Db ::query("SHOW COLUMNS FROM " . $this -> db_prefix . $tableName);
         // 生成验证规则
         $rules = '';
         foreach ($tableColumns as $column) {
@@ -143,7 +142,7 @@ class Curd extends Command
         $templateContent = file_get_contents($templateFilePath);
 
         // 读取数据库所有字段
-        $tableColumns = \think\facade\Db ::query("SHOW COLUMNS FROM " . self::DB_PREFIX . $tableName);
+        $tableColumns = \think\facade\Db ::query("SHOW COLUMNS FROM " . $this -> db_prefix . $tableName);
 
         // 生成新增字段代码
         $addFields = '';
@@ -162,7 +161,7 @@ class Curd extends Command
         $content = str_replace('<?php echo "<?php\n"; ?>', '<?php', $templateContent);
         $content = str_replace('{{module}}', $moduleName, $content);
         $content = str_replace('{{model}}', $modelName . 'Model', $content);
-        $content = str_replace('{{table}}', self::DB_PREFIX . $tableName, $content);
+        $content = str_replace('{{table}}', $this -> db_prefix . $tableName, $content);
         $content = str_replace('{{add_fields}}', $addFields, $content);
         $content = str_replace('{{add_fields}}', $addFields, $content);
         $content = str_replace('{{update_fields}}', $updateFields, $content);
@@ -189,7 +188,7 @@ class Curd extends Command
         $templateContent = file_get_contents($templateFilePath);
 
         // 读取数据库所有字段
-        $tableColumns = \think\facade\Db ::query("SHOW COLUMNS FROM " . self::DB_PREFIX . $tableName);
+        $tableColumns = \think\facade\Db ::query("SHOW COLUMNS FROM " . $this -> db_prefix . $tableName);
         // 生成新增字段代码
         $fields = '';
         foreach ($tableColumns as $column) {

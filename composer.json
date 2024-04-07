@@ -18,6 +18,13 @@
           "src/helper.php"
         ]
     },
+    "extra": {
+        "think": {
+            "config": {
+                "curd": "src/config.php"
+            }
+        }
+    },
     "authors": [
         {
             "name": "zsl",
