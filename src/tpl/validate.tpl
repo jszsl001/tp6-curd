@@ -33,12 +33,6 @@ class {{validate}} extends Validate
         return $this -> only();
     }
 
-    public function sceneDelete()
-    {
-        // TODO
-        return $this -> only();
-    }
-
 
 
 }
