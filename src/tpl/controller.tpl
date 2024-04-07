@@ -76,4 +76,31 @@ class {{controller}} extends RestBaseController
         }
     }
 
+    public function enable({{controller}}Logic $logic)
+    {
+        try {
+            $param = $this -> request -> post();
+            if (false === $logic -> enable($param)) {
+                return $this -> error($logic -> getErrorCode(), $logic -> getErrorMsg(), $logic -> getData());
+            }
+            return $this -> success($logic -> getData());
+        } catch (\Exception $e) {
+            return $this -> error($logic -> getErrorCode(), $logic -> getErrorMsg(), $logic -> getData());
+        }
+    }
+
+    public function disable({{controller}}Logic $logic)
+    {
+        try {
+            $param = $this -> request -> post();
+            if (false === $logic -> disable($param)) {
+                return $this -> error($logic -> getErrorCode(), $logic -> getErrorMsg(), $logic -> getData());
+            }
+            return $this -> success($logic -> getData());
+        } catch (\Exception $e) {
+            return $this -> error($logic -> getErrorCode(), $logic -> getErrorMsg(), $logic -> getData());
+        }
+    }
+
+
 }

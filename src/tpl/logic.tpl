@@ -112,5 +112,47 @@ class {{logic}}Logic extends BaseLogic
         return true;
     }
 
+    public function enable($param)
+    {
+        $validate = new {{logic}}Validate();
+        if (false === $validate -> scene('id') -> check($param)) {
+            $this -> setError(StatusCode::E_200000);
+            $this -> setErrorMsg($validate -> getError());
+            return false;
+        }
+        $model = new {{logic}}Model();
+        $info = $model -> getInfoById($param['id']);
+        if ($info -> isEmpty()) {
+            $this -> setError(StatusCode::E_200000);
+            $this -> setErrorMsg('数据不存在');
+            return false;
+        }
+        $info -> status = 1;
+        $info -> save();
+        return true;
+    }
+
+
+    public function disable($param)
+    {
+        $validate = new {{logic}}Validate();
+        if (false === $validate -> scene('id') -> check($param)) {
+            $this -> setError(StatusCode::E_200000);
+            $this -> setErrorMsg($validate -> getError());
+            return false;
+        }
+        $model = new {{logic}}Model();
+        $info = $model -> getInfoById($param['id']);
+        if ($info -> isEmpty()) {
+            $this -> setError(StatusCode::E_200000);
+            $this -> setErrorMsg('数据不存在');
+            return false;
+        }
+        $info -> status = 0;
+        $info -> save();
+        return true;
+    }
+
+
 
 }
