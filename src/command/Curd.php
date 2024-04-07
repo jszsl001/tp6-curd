@@ -13,7 +13,8 @@ class Curd extends Command
 
     protected function configure()
     {
-        $this -> db_prefix = $this -> app -> config -> get('curd.db_prefix');
+
+        $this -> db_prefix = config('curd.db_prefix');
 
         $this -> setName('curd:make')
             -> addArgument('module_name', Argument::REQUIRED, "模块名")
