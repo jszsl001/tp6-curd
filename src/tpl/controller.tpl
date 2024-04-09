@@ -4,6 +4,7 @@ namespace app\{{module}}\controller;
 
 use app\{{module}}\logic\{{controller}}Logic;
 use app\common\controller\RestBaseController;
+use app\StatusCode;
 
 class {{controller}} extends RestBaseController
 {
@@ -18,7 +19,7 @@ class {{controller}} extends RestBaseController
             }
             return $this -> success($logic -> getData());
         } catch (\Exception $e) {
-            return $this -> error($logic -> getErrorCode(), $logic -> getErrorMsg(), $logic -> getData());
+            return $this -> error(StatusCode::E_100500, $e -> getMessage());
         }
     }
 
@@ -31,7 +32,7 @@ class {{controller}} extends RestBaseController
             }
             return $this -> success($logic -> getData());
         } catch (\Exception $e) {
-            return $this -> error($logic -> getErrorCode(), $logic -> getErrorMsg(), $logic -> getData());
+            return $this -> error(StatusCode::E_100500, $e -> getMessage());
         }
     }
 
@@ -45,7 +46,7 @@ class {{controller}} extends RestBaseController
             }
             return $this -> success($logic -> getData());
         } catch (\Exception $e) {
-            return $this -> error($logic -> getErrorCode(), $logic -> getErrorMsg(), $logic -> getData());
+            return $this -> error(StatusCode::E_100500, $e -> getMessage());
         }
     }
 
@@ -59,7 +60,7 @@ class {{controller}} extends RestBaseController
             }
             return $this -> success($logic -> getData());
         } catch (\Exception $e) {
-            return $this -> error($logic -> getErrorCode(), $logic -> getErrorMsg(), $logic -> getData());
+            return $this -> error(StatusCode::E_100500, $e -> getMessage());
         }
     }
 
@@ -72,7 +73,7 @@ class {{controller}} extends RestBaseController
             }
             return $this -> success($logic -> getData());
         } catch (\Exception $e) {
-            return $this -> error($logic -> getErrorCode(), $logic -> getErrorMsg(), $logic -> getData());
+            return $this -> error(StatusCode::E_100500, $e -> getMessage());
         }
     }
 
@@ -85,7 +86,7 @@ class {{controller}} extends RestBaseController
             }
             return $this -> success($logic -> getData());
         } catch (\Exception $e) {
-            return $this -> error($logic -> getErrorCode(), $logic -> getErrorMsg(), $logic -> getData());
+            return $this -> error(StatusCode::E_100500, $e -> getMessage());
         }
     }
 
@@ -98,7 +99,7 @@ class {{controller}} extends RestBaseController
             }
             return $this -> success($logic -> getData());
         } catch (\Exception $e) {
-            return $this -> error($logic -> getErrorCode(), $logic -> getErrorMsg(), $logic -> getData());
+            return $this -> error(StatusCode::E_100500, $e -> getMessage());
         }
     }
 
