@@ -11,6 +11,8 @@ use think\helper\Str;
 class Curd extends Command
 {
 
+    protected $db_prefix;
+
     protected function configure()
     {
 
